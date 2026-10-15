@@ -1,0 +1,527 @@
+/* ---------- General ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --page-bg: #fff5f5;
+    --card-bg: #ffffff;
+    --text: #29252a;
+    --muted: #89848a;
+    --pink: #f47789;
+    --green: #91c84e;
+    --shadow: 0 5px 15px rgba(70, 45, 55, 0.12);
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f6eeee;
+    color: var(--text);
+    padding: 35px 16px;
+    line-height: 1.45;
+}
+
+button,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:focus-visible,
+select:focus-visible {
+    outline: 2px solid #a64d7d;
+    outline-offset: 3px;
+}
+
+/* ---------- Main application ---------- */
+.app-container {
+    max-width: 825px;
+    margin: 0 auto;
+    background: var(--page-bg);
+    padding: 48px 52px 30px;
+    min-height: 600px;
+}
+
+/* ---------- Gradient header ---------- */
+.hero {
+    min-height: 75px;
+    background: linear-gradient(110deg, #a65d91, #fa7d8c);
+    border-radius: 6px;
+    color: white;
+    padding: 16px 21px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.hero h1 {
+    font-size: 17px;
+    line-height: 1.4;
+    font-weight: 700;
+    margin-bottom: 3px;
+}
+
+.hero p {
+    font-size: 10px;
+    opacity: 0.92;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+}
+
+.about-btn,
+.theme-btn {
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 11px;
+}
+
+.theme-btn {
+    font-size: 17px;
+    padding: 4px;
+}
+
+/* ---------- Category filters ---------- */
+.filters-section {
+    margin-top: 27px;
+}
+
+.filters-section h2 {
+    font-size: 11px;
+    margin-bottom: 10px;
+}
+
+.category-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px 12px;
+}
+
+.category-btn {
+    background: transparent;
+    color: #777178;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    padding: 5px 8px;
+    font-size: 10px;
+    white-space: nowrap;
+    transition: background 0.2s, color 0.2s;
+}
+
+.category-btn:hover {
+    background: #ffe0e5;
+}
+
+.category-btn.active {
+    background: #f47789;
+    color: white;
+    border-color: #f47789;
+}
+
+/* ---------- Country dropdown ---------- */
+.country-filter {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 17px;
+    font-size: 10px;
+    color: var(--muted);
+}
+
+.country-filter select {
+    max-width: 180px;
+    width: 145px;
+    padding: 5px 8px;
+    background: white;
+    color: #686168;
+    border: 1px solid #cfc6cc;
+    border-radius: 5px;
+    font-size: 10px;
+}
+
+/* ---------- Destination cards ---------- */
+.destinations-section {
+    margin-top: 39px;
+}
+
+.destination-grid,
+.selected-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.destination-card {
+    background: var(--card-bg);
+    border-radius: 7px;
+    padding: 0 10px 14px;
+    box-shadow: var(--shadow);
+    min-width: 0;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.destination-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(70, 45, 55, 0.16);
+}
+
+.destination-image {
+    width: calc(100% + 20px);
+    height: 125px;
+    margin-left: -10px;
+    display: block;
+    object-fit: cover;
+    background: #eadde0;
+}
+
+.destination-location {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    margin-bottom: 7px;
+    font-size: 10px;
+    color: #a09aa0;
+}
+
+.location-icon {
+    color: #268f78;
+    font-size: 13px;
+}
+
+.destination-card h3 {
+    font-size: 12px;
+    line-height: 1.25;
+    padding-right: 3px;
+    margin-bottom: 7px;
+}
+
+.destination-description {
+    font-size: 10px;
+    line-height: 1.4;
+    color: #89838a;
+}
+
+.card-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+.card-title-row h3 {
+    flex: 1;
+}
+
+.add-btn {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border: none;
+    border-radius: 50%;
+    background: #f47789;
+    color: white;
+    font-size: 19px;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -1px;
+    transition: transform 0.2s;
+}
+
+.add-btn:hover {
+    transform: scale(1.12);
+}
+
+.add-btn.added {
+    background: var(--green);
+    font-size: 16px;
+}
+
+/* ---------- Empty search results ---------- */
+.empty-message {
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    padding: 30px 0;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* ---------- My bucket list ---------- */
+.my-list-section {
+    margin-top: 42px;
+    border-top: 1px solid #eadbdf;
+    padding-top: 25px;
+}
+
+.list-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.list-heading h2 {
+    font-size: 17px;
+}
+
+.list-heading p {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 4px;
+}
+
+.list-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.secondary-btn,
+.clear-btn {
+    border: 1px solid #e9b4bf;
+    border-radius: 5px;
+    padding: 7px 10px;
+    font-size: 10px;
+    background: white;
+    color: #9b5576;
+}
+
+.clear-btn {
+    color: #bd5868;
+    border-color: #efc3ca;
+}
+
+.selected-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.remove-btn {
+    background: var(--green);
+}
+
+.list-empty {
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    padding: 18px 5px;
+}
+
+/* ---------- Footer ---------- */
+footer {
+    text-align: center;
+    color: #aaa0a6;
+    font-size: 10px;
+    margin-top: 32px;
+}
+
+footer span {
+    color: #ef7187;
+}
+
+/* ---------- About modal ---------- */
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    background: rgba(35, 25, 35, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 420px;
+    width: 100%;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.modal-content h2 {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.modal-content p {
+    font-size: 13px;
+    color: #777178;
+    margin-bottom: 10px;
+}
+
+.close-modal {
+    position: absolute;
+    right: 12px;
+    top: 8px;
+    background: transparent;
+    border: none;
+    font-size: 25px;
+    color: #777;
+}
+
+/* ---------- Dark mode ---------- */
+body.dark-mode {
+    --page-bg: #25212a;
+    --card-bg: #342e38;
+    --text: #f6edf4;
+    --muted: #c0b5c1;
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background: #17141a;
+}
+
+body.dark-mode .category-btn {
+    color: #d4c8d4;
+}
+
+body.dark-mode .category-btn.active {
+    color: white;
+}
+
+body.dark-mode .country-filter select,
+body.dark-mode .secondary-btn,
+body.dark-mode .clear-btn {
+    background: #342e38;
+    color: #f6edf4;
+    border-color: #665363;
+}
+
+body.dark-mode .destination-description,
+body.dark-mode .destination-location,
+body.dark-mode .list-heading p {
+    color: #c0b5c1;
+}
+
+body.dark-mode .my-list-section {
+    border-color: #4d414e;
+}
+
+/* ---------- Responsive design ---------- */
+@media (max-width: 650px) {
+    body {
+        padding: 15px 8px;
+    }
+
+    .app-container {
+        padding: 24px 18px;
+    }
+
+    .hero {
+        padding: 16px;
+    }
+
+    .hero h1 {
+        font-size: 15px;
+    }
+
+    .hero-actions {
+        gap: 8px;
+    }
+
+    .category-filters {
+        gap: 6px;
+    }
+
+    .destination-grid,
+    .selected-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .destination-image {
+        height: 125px;
+    }
+}
+
+@media (max-width: 420px) {
+    .hero {
+        align-items: flex-start;
+    }
+
+    .hero p {
+        max-width: 190px;
+    }
+
+    .hero-actions {
+        gap: 5px;
+    }
+
+    .destination-grid,
+    .selected-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .destination-image {
+        height: 190px;
+    }
+
+    .list-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .country-filter {
+        flex-wrap: wrap;
+    }
+}
+
+/* ---------- Print / Save as PDF ---------- */
+@media print {
+    body {
+        padding: 0;
+        background: white;
+        color: black;
+    }
+
+    .app-container {
+        max-width: none;
+        padding: 15px;
+        background: white;
+    }
+
+    .hero,
+    .filters-section,
+    .destinations-section,
+    footer,
+    .list-actions,
+    .modal {
+        display: none !important;
+    }
+
+    .my-list-section {
+        display: block;
+        margin: 0;
+        border: none;
+    }
+
+    .destination-card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        break-inside: avoid;
+    }
+
+    .remove-btn {
+        display: none;
+    }
+}

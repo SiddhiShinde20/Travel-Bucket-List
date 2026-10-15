@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Bucket List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="app-container">
+
+        <!-- Header -->
+        <header class="hero">
+            <div class="hero-text">
+                <h1>Build your ideal travel bucket list.</h1>
+                <p>Browse 🗺️ Pick ☝️ Print or Save (as PDF) your list.</p>
+            </div>
+
+            <div class="hero-actions">
+                <button id="aboutBtn" class="about-btn">About</button>
+                <button id="themeBtn" class="theme-btn" aria-label="Toggle theme">♟</button>
+            </div>
+        </header>
+
+        <!-- Filters -->
+        <section class="filters-section">
+            <h2>Filters</h2>
+            <div id="categoryFilters" class="category-filters"></div>
+
+            <div class="country-filter">
+                <label for="countrySelect">Show me items from</label>
+                <select id="countrySelect">
+                    <option value="All Countries">All Countries</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Results -->
+        <section class="destinations-section">
+            <div id="destinationGrid" class="destination-grid"></div>
+
+            <div id="emptyMessage" class="empty-message" hidden>
+                No destinations found. Try another filter!
+            </div>
+        </section>
+
+        <!-- My Bucket List -->
+        <section class="my-list-section">
+            <div class="list-heading">
+                <div>
+                    <h2>My Travel Bucket List ✈️</h2>
+                    <p id="listCount">0 destinations selected</p>
+                </div>
+
+                <div class="list-actions">
+                    <button id="printBtn" class="secondary-btn">Print / Save PDF</button>
+                    <button id="clearBtn" class="clear-btn">Clear list</button>
+                </div>
+            </div>
+
+            <div id="selectedGrid" class="selected-grid"></div>
+
+            <p id="listEmpty" class="list-empty">
+                Your bucket list is empty. Add destinations using the + button!
+            </p>
+        </section>
+
+        <footer>
+            Made for your next adventure <span>♥</span>
+        </footer>
+
+    </main>
+
+    <!-- About modal -->
+    <div id="aboutModal" class="modal" hidden>
+        <div class="modal-content">
+            <button id="closeModal" class="close-modal" aria-label="Close">×</button>
+            <h2>About Travel Bucket List</h2>
+            <p>
+                Discover amazing destinations, explore places around the world,
+                and create a personal list of adventures you want to experience.
+            </p>
+            <p>Add a destination with + and remove it with ×.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
